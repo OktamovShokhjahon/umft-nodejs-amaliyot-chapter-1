@@ -4,6 +4,9 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+// routes
+const BookRoute = require("./routes/book.route.js");
+
 // app
 const app = express();
 
@@ -11,6 +14,9 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+
+// middlewares
+app.use("/books", BookRoute);
 
 // start
 const start = () => {
